@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { SignInButton, UserButton, SignedIn, SignedOut } from '@clerk/nextjs';
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -31,6 +32,12 @@ const Navigation = () => {
       >
         Product 1
       </Link>
+      <SignedOut>
+        <SignInButton mode="modal" />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
     </nav>
   );
 };
